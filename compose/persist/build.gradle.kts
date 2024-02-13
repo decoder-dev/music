@@ -29,6 +29,12 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_10
+        targetCompatibility = JavaVersion.VERSION_1_10
+    }
+    buildToolsVersion = "34.0.0"
+    ndkVersion = "25.1.8937393"
 }
 
 kotlin {
