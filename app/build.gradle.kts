@@ -28,10 +28,6 @@ android {
 
     signingConfigs {
         create("ci") {
-            storeFile = System.getenv("ANDROID_NIGHTLY_KEYSTORE")?.let { file(it) }
-            storePassword = System.getenv("ANDROID_NIGHTLY_KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("ANDROID_NIGHTLY_KEYSTORE_ALIAS")
-            keyPassword = System.getenv("ANDROID_NIGHTLY_KEYSTORE_PASSWORD")
         }
     }
 
@@ -71,8 +67,6 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_10
-        targetCompatibility = JavaVersion.VERSION_1_10
     }
 
     composeOptions {
@@ -86,8 +80,6 @@ android {
     packaging {
         resources.excludes.add("META-INF/**/*")
     }
-    buildToolsVersion = "34.0.0"
-    ndkVersion = "25.1.8937393"
 }
 
 kotlin {
