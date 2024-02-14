@@ -41,11 +41,12 @@ android {
         }
 
         release {
+            manifestPlaceholders += mapOf()
             versionNameSuffix = "-RELEASE"
             isMinifyEnabled = true
             isShrinkResources = true
+            proguardFiles("proguard-rules.pro", "proguard-rules.pro")
             manifestPlaceholders["appName"] = "Music"
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             buildConfigField("String", "RELEASE_HACK", "\"AndroidWhyTfDidYouMakeMeDoThis\"")
         }
 
