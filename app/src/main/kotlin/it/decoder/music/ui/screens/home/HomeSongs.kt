@@ -82,7 +82,6 @@ import it.decoder.music.utils.secondary
 import it.decoder.music.utils.semiBold
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlin.time.Duration.Companion.milliseconds
 
 private val Song.formattedTotalPlayTime: String
     @Composable get() {

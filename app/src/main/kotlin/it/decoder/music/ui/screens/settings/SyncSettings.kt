@@ -25,8 +25,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import io.ktor.http.Url
 import it.decoder.compose.persist.persistList
-import it.decoder.piped.Piped
-import it.decoder.piped.models.Instance
 import it.decoder.music.Database
 import it.decoder.music.R
 import it.decoder.music.models.PipedSession
@@ -40,6 +38,8 @@ import it.decoder.music.ui.screens.Route
 import it.decoder.music.ui.styling.LocalAppearance
 import it.decoder.music.utils.center
 import it.decoder.music.utils.semiBold
+import it.decoder.piped.Piped
+import it.decoder.piped.models.Instance
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.launch
 

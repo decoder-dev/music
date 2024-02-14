@@ -9,11 +9,11 @@ import androidx.compose.ui.res.stringResource
 import io.ktor.http.Url
 import it.decoder.compose.persist.PersistMapCleanup
 import it.decoder.compose.routing.RouteHandler
-import it.decoder.piped.models.authenticatedWith
 import it.decoder.music.R
 import it.decoder.music.ui.components.themed.Scaffold
 import it.decoder.music.ui.screens.GlobalRoutes
 import it.decoder.music.ui.screens.Route
+import it.decoder.piped.models.authenticatedWith
 import java.util.UUID
 
 @Route
