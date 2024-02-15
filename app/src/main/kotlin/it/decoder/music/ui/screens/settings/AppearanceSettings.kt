@@ -36,7 +36,8 @@ fun AppearanceSettings() = with(AppearancePreferences) {
             EnumValueSelectorSettingsEntry(
                 title = stringResource(R.string.theme_mode),
                 selectedValue = colorPaletteMode,
-                isEnabled = colorPaletteName != ColorPaletteName.PureBlack,
+                isEnabled = colorPaletteName != ColorPaletteName.PureBlack &&
+                        colorPaletteName != ColorPaletteName.AMOLED,
                 onValueSelected = { colorPaletteMode = it },
                 valueText = { it.nameLocalized }
             )
@@ -109,13 +110,6 @@ fun AppearanceSettings() = with(AppearancePreferences) {
                 valueText = { it.displayName() }
             )
 
-            EnumValueSelectorSettingsEntry(
-                title = stringResource(R.string.seek_bar_style),
-                selectedValue = PlayerPreferences.seekBarStyle,
-                onValueSelected = { PlayerPreferences.seekBarStyle = it },
-                valueText = { it.displayName() }
-            )
-
             AnimatedVisibility(
                 visible = PlayerPreferences.playerLayout == PlayerPreferences.PlayerLayout.New,
                 label = ""
@@ -125,6 +119,25 @@ fun AppearanceSettings() = with(AppearancePreferences) {
                     text = stringResource(R.string.show_like_button_description),
                     isChecked = PlayerPreferences.showLike,
                     onCheckedChange = { PlayerPreferences.showLike = it }
+                )
+            }
+
+            EnumValueSelectorSettingsEntry(
+                title = stringResource(R.string.seek_bar_style),
+                selectedValue = PlayerPreferences.seekBarStyle,
+                onValueSelected = { PlayerPreferences.seekBarStyle = it },
+                valueText = { it.displayName() }
+            )
+
+            AnimatedVisibility(
+                visible = PlayerPreferences.seekBarStyle == PlayerPreferences.SeekBarStyle.Wavy,
+                label = ""
+            ) {
+                EnumValueSelectorSettingsEntry(
+                    title = stringResource(R.string.seek_bar_quality),
+                    selectedValue = PlayerPreferences.wavySeekBarQuality,
+                    onValueSelected = { PlayerPreferences.wavySeekBarQuality = it },
+                    valueText = { it.displayName() }
                 )
             }
 
@@ -152,6 +165,7 @@ val ColorPaletteName.nameLocalized
             ColorPaletteName.Default -> R.string.theme_name_default
             ColorPaletteName.Dynamic -> R.string.theme_name_dynamic
             ColorPaletteName.PureBlack -> R.string.theme_name_pureblack
+            ColorPaletteName.AMOLED -> R.string.theme_name_amoled
         }
     )
 

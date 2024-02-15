@@ -28,6 +28,10 @@ android {
 
     signingConfigs {
         create("ci") {
+            storeFile = System.getenv("ANDROID_NIGHTLY_KEYSTORE")?.let { file(it) }
+            storePassword = System.getenv("ANDROID_NIGHTLY_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("ANDROID_NIGHTLY_KEYSTORE_ALIAS")
+            keyPassword = System.getenv("ANDROID_NIGHTLY_KEYSTORE_PASSWORD")
         }
     }
 

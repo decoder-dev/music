@@ -17,6 +17,7 @@ import it.decoder.innertube.models.bodies.ContinuationBody
 import it.decoder.innertube.requests.playlistPage
 import it.decoder.piped.models.Playlist
 import it.decoder.music.models.Song
+import it.decoder.music.preferences.AppearancePreferences
 import it.decoder.music.service.LOCAL_KEY_PREFIX
 import it.decoder.music.service.isLocal
 import kotlinx.coroutines.flow.Flow
@@ -120,10 +121,16 @@ val Song.asMediaItem: MediaItem
         .setCustomCacheKey(id)
         .build()
 
-fun String?.thumbnail(size: Int) = when {
-    this?.startsWith("https://lh3.googleusercontent.com") == true -> "$this-w$size-h$size"
-    this?.startsWith("https://yt3.ggpht.com") == true -> "$this-w$size-h$size-s$size"
-    else -> this
+fun String?.thumbnail(
+    size: Int,
+    maxSize: Int = AppearancePreferences.maxThumbnailSize
+): String? {
+    val actualSize = size.coerceAtMost(maxSize)
+    return when {
+        this?.startsWith("https://lh3.googleusercontent.com") == true -> "$this-w$actualSize-h$actualSize"
+        this?.startsWith("https://yt3.ggpht.com") == true -> "$this-w$actualSize-h$actualSize-s$actualSize"
+        else -> this
+    }
 }
 
 fun Uri?.thumbnail(size: Int) = toString().thumbnail(size)?.toUri()

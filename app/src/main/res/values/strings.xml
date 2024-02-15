@@ -7,6 +7,7 @@
     <string name="format_db">%1$s dB</string>
     <string name="format_kbps">%1$s kbps</string>
     <string name="format_ms">%1$s ms</string>
+    <string name="format_px">%1$spx</string>
 
     <string name="format_go_to_artist">More from %1$s</string>
     <string name="format_top_playlist">Top %1$s</string>
@@ -129,7 +130,7 @@
     <string name="no_browser_installed">Couldn\'t find an application to browse the internet</string>
     <string name="no_equalizer_installed">Couldn\'t find an application to equalize audio</string>
     <string name="no_file_chooser_installed">Couldn\'t find an application to create documents</string>
-    <string name="no_battery_optimization_settings_found">Couldn\'t find battery optimization settings, please whitelist ViMusic manually</string>
+    <string name="no_battery_optimization_settings_found">Couldn\'t find battery optimization settings, please whitelist Music manually</string>
 
     <string name="related_albums">Related albums</string>
     <string name="similar_artists">Similar artists</string>
@@ -185,6 +186,7 @@
     <string name="theme_name_default">Default</string>
     <string name="theme_name_dynamic">Dynamic</string>
     <string name="theme_name_pureblack">PureBlack</string>
+    <string name="theme_name_amoled">AMOLED</string>
 
     <string name="theme_mode">Theme mode</string>
     <string name="theme_mode_light">Light</string>
@@ -241,7 +243,7 @@
     <string name="backup_description">Personal preferences (i.e. the theme mode) and the cache are excluded.</string>
     <string name="backup_action_description">Export the database to the external storage</string>
     <string name="restore">Restore</string>
-    <string name="restore_warning">Existing data will be overwritten.\nViMusic will automatically close itself after restoring the database.</string>
+    <string name="restore_warning">Existing data will be overwritten.\nMusic will automatically close itself after restoring the database.</string>
     <string name="restore_description">Import the database from the external storage</string>
 
     <string name="other">Other</string>
@@ -317,7 +319,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="sync_description">You can host playlists elsewhere and synchronize them with ViMusic. Currently only supports Piped.</string>
+    <string name="sync_description">You can host playlists elsewhere and synchronize them with Music. Currently only supports Piped.</string>
     <string name="add_account">Add account</string>
     <string name="add_account_description">Link a Piped account with your instance, username and password.</string>
     <string name="learn_more">Learn more</string>
@@ -329,6 +331,13 @@
     <string name="seek_bar_style">Seek bar style</string>
     <string name="static_seek_bar_name">Static</string>
     <string name="wavy_seek_bar_name">Wavy</string>
+    <string name="seek_bar_quality">Wavy seek bar quality</string>
+    <string name="seek_bar_quality_poor">Poor</string>
+    <string name="seek_bar_quality_low">Low</string>
+    <string name="seek_bar_quality_medium">Medium</string>
+    <string name="seek_bar_quality_high">High</string>
+    <string name="seek_bar_quality_great">Great</string>
+    <string name="seek_bar_quality_subpixel">Subpixel</string>
 
     <string name="remove_from_blacklist">Remove from blacklist</string>
     <string name="add_to_blacklist">Add to blacklist</string>
@@ -347,6 +356,10 @@
     <string name="new_version_available">A new version is available</string>
     <string name="more_information">More information</string>
     <string name="up_to_date">You\'re currently up-to-date: no updates available</string>
+
+    <string name="dynamic_thumbnails">Dynamic thumbnails</string>
+    <string name="max_dynamic_thumbnail_size">Max dynamic thumbnail size</string>
+    <string name="max_dynamic_thumbnail_size_description">The maximum size of a thumbnail when a dynamic thumbnail is used</string>
 
     <plurals name="format_reset_blacklist_description">
         <item quantity="one">Remove %1$s song from the blacklist</item>

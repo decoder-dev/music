@@ -34,7 +34,7 @@ subprojects {
 
 allprojects {
     group = "it.decoder.music"
-    version = "2.4.1"
+    version = "2.4.2"
 
     apply(plugin = "io.gitlab.arturbosch.detekt")
 

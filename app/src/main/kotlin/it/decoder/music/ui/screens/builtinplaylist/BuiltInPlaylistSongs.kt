@@ -20,7 +20,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -49,11 +48,10 @@ import it.decoder.music.utils.forcePlayFromBeginning
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.cancellable
+import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.transformLatest
-import kotlin.math.min
 
 @OptIn(ExperimentalCoroutinesApi::class, ExperimentalFoundationApi::class)
 @Composable
@@ -75,17 +73,20 @@ fun BuiltInPlaylistSongs(
                 songs.filter { binder?.isCached(it) ?: false }.map { it.song }
             }
 
-            BuiltInPlaylist.Top -> snapshotFlow { topListPeriod to topListLength }
-                .distinctUntilChanged()
-                .transformLatest { (period, length) ->
-                    emitAll(
-                        if (period.duration != null) Database.trending(
-                            limit = length,
-                            period = period.duration.inWholeMilliseconds
-                        ) else Database.songsByPlayTimeDesc().distinctUntilChanged()
-                            .map { it.subList(0, min(length, it.size)) }.cancellable()
-                    )
-                }
+            BuiltInPlaylist.Top -> combineTransform(
+                flow = topListPeriodProperty.stateFlow,
+                flow2 = topListLengthProperty.stateFlow
+            ) { period, length ->
+                emitAll(
+                    if (period.duration != null) Database.trending(
+                        limit = length,
+                        period = period.duration.inWholeMilliseconds
+                    ) else Database
+                        .songsByPlayTimeDesc(limit = length)
+                        .distinctUntilChanged()
+                        .cancellable()
+                )
+            }
         }.collect { songs = it }
     }
 

@@ -125,6 +125,9 @@
 <string name="show_synchronized_lyrics">Показать синхронизированные тексты песен</string>
 <string name="provided_lyrics_by">Предоставлено lrclib.net &amp; kugou.com</string>
 <string name="edit_lyrics">Редактировать текст песни</string>
+<string name="dynamic_thumbnails">Динамические миниатюры</string>
+<string name="max_dynamic_thumbnail_size">Максимальный размер динамической миниатюры</string>
+<string name="max_dynamic_thumbnail_size_description">Максимальный размер миниатюры при использовании динамической миниатюры</string>
 <string name="search_lyrics_online">Искать тексты песен онлайн</string>
 <string name="refetch_lyrics">Повторно получить текст песни</string>
 <string name="pick_from_lrclib">Выбрать текст песни с lrclib.net</string>
@@ -148,6 +151,13 @@
 <string name="format_version_credits">v%1$s от decoder</string>
 <string name="social">Социальные сети</string>
 <string name="contact">Контакт</string>
+<string name="seek_bar_quality">Качество волнистой панели поиска</string>
+<string name="seek_bar_quality_poor">Низкое</string>
+<string name="seek_bar_quality_low">Низкое</string>
+<string name="seek_bar_quality_medium">Среднее</string>
+<string name="seek_bar_quality_high">Высокое</string>
+<string name="seek_bar_quality_great">Отличное</string>
+<string name="seek_bar_quality_subpixel">Субпиксельное</string>
 <string name="github">GitHub</string>
 <string name="view_source">Просмотреть исходный код</string>
 <string name="report_bug">Сообщить о проблеме</string>
@@ -219,6 +229,7 @@
 <string name="format_clear_search_history_amount">Удалить %1$s запросов поиска</string>
 <string name="empty_history">История пуста</string>
 <string name="built_in_playlists">Встроенные плейлисты</string>
+<string name="format_px">%1$spx</string>
 <string name="top_list_length">Длина списка лучших</string>
 <string name="top_list_length_description">Ограничивает длину плейлиста \'Мои лучшие x\'</string>
 <string name="service_lifetime">Срок службы сервиса</string>
