@@ -15,10 +15,10 @@ import androidx.media3.common.util.UnstableApi
 import it.decoder.innertube.Innertube
 import it.decoder.innertube.models.bodies.ContinuationBody
 import it.decoder.innertube.requests.playlistPage
+import it.decoder.piped.models.Playlist
 import it.decoder.music.models.Song
 import it.decoder.music.service.LOCAL_KEY_PREFIX
 import it.decoder.music.service.isLocal
-import it.decoder.piped.models.Playlist
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.onEach
 

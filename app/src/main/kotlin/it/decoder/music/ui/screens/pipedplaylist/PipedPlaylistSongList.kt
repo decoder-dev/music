@@ -21,6 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.valentinilk.shimmer.shimmer
 import it.decoder.compose.persist.persist
+import it.decoder.piped.Piped
+import it.decoder.piped.models.Playlist
+import it.decoder.piped.models.Session
 import it.decoder.music.LocalPlayerAwareWindowInsets
 import it.decoder.music.LocalPlayerServiceBinder
 import it.decoder.music.R
@@ -42,9 +45,6 @@ import it.decoder.music.utils.enqueue
 import it.decoder.music.utils.forcePlayAtIndex
 import it.decoder.music.utils.forcePlayFromBeginning
 import it.decoder.music.utils.isLandscape
-import it.decoder.piped.Piped
-import it.decoder.piped.models.Playlist
-import it.decoder.piped.models.Session
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID

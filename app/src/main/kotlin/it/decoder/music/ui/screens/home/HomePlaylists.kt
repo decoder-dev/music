@@ -32,6 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import it.decoder.compose.persist.persist
 import it.decoder.compose.persist.persistList
+import it.decoder.piped.Piped
+import it.decoder.piped.models.Session
 import it.decoder.music.Database
 import it.decoder.music.LocalPlayerAwareWindowInsets
 import it.decoder.music.R
@@ -55,8 +57,6 @@ import it.decoder.music.ui.screens.settings.SettingsEntryGroupText
 import it.decoder.music.ui.screens.settings.SettingsGroupSpacer
 import it.decoder.music.ui.styling.Dimensions
 import it.decoder.music.ui.styling.LocalAppearance
-import it.decoder.piped.Piped
-import it.decoder.piped.models.Session
 import kotlinx.coroutines.async
 import it.decoder.piped.models.PlaylistPreview as PipedPlaylistPreview
 

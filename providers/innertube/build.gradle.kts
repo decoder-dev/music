@@ -26,8 +26,3 @@ kotlin {
         freeCompilerArgs.addAll("-Xcontext-receivers")
     }
 }
-
-dependencies {
-    // Добавьте зависимость для Compose
-    implementation("androidx.compose.runtime:runtime:1.6.1")
-}
