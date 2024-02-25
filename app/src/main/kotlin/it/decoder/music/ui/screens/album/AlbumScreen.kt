@@ -7,8 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.SaverScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.runtime.setValue
@@ -42,6 +40,7 @@ import it.decoder.music.ui.screens.searchresult.ItemsPage
 import it.decoder.music.ui.styling.Dimensions
 import it.decoder.music.ui.styling.LocalAppearance
 import it.decoder.music.utils.asMediaItem
+import it.decoder.music.utils.stateFlowSaver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -53,14 +52,7 @@ import kotlinx.coroutines.withContext
 fun AlbumScreen(browseId: String) {
     val saveableStateHolder = rememberSaveableStateHolder()
 
-    val tabIndexState = rememberSaveable(
-        saver = object : Saver<MutableStateFlow<Int>, Int> {
-            override fun restore(value: Int) = MutableStateFlow(value)
-            override fun SaverScope.save(value: MutableStateFlow<Int>) = value.value
-        }
-    ) {
-        MutableStateFlow(0)
-    }
+    val tabIndexState = rememberSaveable(saver = stateFlowSaver()) { MutableStateFlow(0) }
     val tabIndex by tabIndexState.collectAsState()
 
     var album by persist<Album?>("album/$browseId/album")
@@ -202,11 +194,11 @@ fun AlbumScreen(browseId: String) {
                         1 -> {
                             ItemsPage(
                                 tag = "album/$browseId/alternatives",
-                                headerContent = headerContent,
+                                header = headerContent,
                                 initialPlaceholderCount = 1,
                                 continuationPlaceholderCount = 1,
                                 emptyItemsText = stringResource(R.string.no_alternative_version),
-                                itemsPageProvider = albumPage?.let {
+                                provider = albumPage?.let {
                                     {
                                         Result.success(
                                             Innertube.ItemsPage(

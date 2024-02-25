@@ -49,6 +49,7 @@ import it.decoder.music.utils.findActivity
 import it.decoder.music.utils.isAtLeastAndroid12
 import it.decoder.music.utils.isAtLeastAndroid6
 import it.decoder.music.utils.isIgnoringBatteryOptimizations
+import it.decoder.music.utils.smoothScrollToBottom
 import it.decoder.music.utils.toast
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -292,7 +293,7 @@ fun OtherSettings() {
                 onClick = {
                     coroutineScope.launch {
                         delay(500)
-                        scrollState.animateScrollTo(scrollState.maxValue)
+                        scrollState.smoothScrollToBottom()
                     }
                     showTroubleshoot = true
                 },
